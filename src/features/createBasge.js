@@ -3,7 +3,7 @@ import { Navigation } from 'swiper/modules';
 
 function createBadge() {
 
-
+  console.log('lets play !')
 
   // Event listener to check when the container becomes visible
   // window.addEventListener('scroll', lazyLoadYouTubePlayer);
