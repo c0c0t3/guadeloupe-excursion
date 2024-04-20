@@ -44,3 +44,67 @@ iframe {
   opacity: 1;
   pointer-events: auto;
 }
+
+body {
+  font-family: 'Lato', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.video-controls {display:none}
+
+video::-webkit-media-controls-fullscreen-button {
+    display: none;
+}
+video::-webkit-media-controls-play-button {}
+video::-webkit-media-controls-timeline {}
+video::-webkit-media-controls-current-time-display{}
+video::-webkit-media-controls-time-remaining-display {display: none;}
+video::-webkit-media-controls-mute-button {}
+video::-webkit-media-controls-toggle-closed-captions-button {display: none;}
+video::-webkit-media-controls-volume-slider {}
+
+.swiper-container {
+  height: 100vh;
+}
+
+.swiper-slide {
+  color: #FFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 35px;
+  background: rgba(0, 0, 0, 0.5);
+}
+.swiper-slide video {
+  height:100%;
+  width:100%;
+  object-fit:contain;
+}
+
+@media (max-width: 768px) {
+  .swiper-slide video {
+    height:100%;
+    width:100%;
+    object-fit:cover;
+  }
+}
+
+.swiper-container-vertical > .swiper-pagination-bullets .swiper-pagination-bullet {
+  margin: 10px 0;
+  height: 10px;
+  width: 10px;
+}
+
+.swiper-pagination-bullet-active {
+  background: #FFF;
+}
+
+.lock {
+  overflow: hidden;
+}
+
+.navbar1_component.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
