@@ -4,5 +4,3 @@ import './styles/style.css'
 
 stories()
 console.log('Welcome to Vite + JS + Webflow 2!')
-
-// createBadge()
