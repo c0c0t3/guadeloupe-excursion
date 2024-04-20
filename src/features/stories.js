@@ -8,7 +8,7 @@ function stories() {
   function addSlide(videoName, swipperWrapper) {
     const newSlide2 =
       `<div class="swiper-slide swiper-slide-1"><video>
-    <source src="https://www.w3schools.com/html/mov_bbb.mp4" src2="https://www.w3schools.com/html/${videoName}.mp4" type="video/mp4">
+    <source src2="https://www.w3schools.com/html/mov_bbb.mp4" src="https://cdn.jsdelivr.net/gh/c0c0t3/guadeloupe-excursion@main/src/assets/${videoName}.mp4" type="video/mp4">
     </video>
     <div class="video-controls">
       <button class="play-pause">Play</button>
