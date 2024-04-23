@@ -3,8 +3,13 @@ import { Navigation } from 'swiper/modules';
 
 function stories() {
 
-  const swiperWrapper = document.querySelector('.swiper-wrapper');
 
+  /**
+   *
+   * Programmaticaly add slides to the swiper
+   *
+   */
+  const swiperWrapper = document.querySelector('.swiper-wrapper');
   function addSlide(videoName, swipperWrapper) {
     const newSlide2 =
       `<div class="swiper-slide swiper-slide-1"><video>
@@ -18,50 +23,33 @@ function stories() {
     swipperWrapper.insertAdjacentHTML('beforeend', newSlide2);
   }
 
-  const swiper = new Swiper('.stories_slider', {
+  /**
+   *
+   * Swiper configuration
+   *
+   */
+
+  const swiperOptions = {
     direction: 'vertical',
     effect: 'coverflow',
     mousewheel: true,
+    loop: true,
     slidesPerView: 1,
     pagination: {
       el: '.swiper-pagination',
       clickable: true
     },
-  });
-
-  const stories = document.querySelectorAll('.stories_item');
-  const stories_slider = document.querySelector('.stories_slider');
-  stories.forEach((item, index) => {
-    const videoURL = item.getAttribute('data-video');
-    console.log(videoURL);
-    addSlide(videoURL, swiperWrapper)
-    swiper.update();
-    item.addEventListener('click', () => {
-      console.log(index);
-      swiper.slideTo(index);
-      stories_slider.classList.toggle('active');
-      document.body.classList.toggle('lock');
-      header.classList.toggle('hidden');
-      document.querySelector('.swiper-slide video').play();
-    });
-  });
+  }
+  const swiper = new Swiper('.stories_slider', swiperOptions);
 
 
+  /***
+   *
+   * Video controls
+   *
+   */
 
-  swiper.on('slideChange', function () {
-    // Pause all videos
-    document.querySelectorAll('.swiper-slide video').forEach(function (video) {
-      video.pause();
-    });
-
-    // Play video in the active slide
-    var activeSlideVideo = swiper.slides[swiper.activeIndex].querySelector('video');
-    if (activeSlideVideo) {
-      activeSlideVideo.play();
-    }
-  });
-
-  var videos = document.querySelectorAll('.swiper-slide video');
+  const videos = document.querySelectorAll('.swiper-slide video');
   videos.forEach(function (video) {
     var playPauseButton = video.nextElementSibling.querySelector('.play-pause');
     var muteButton = video.nextElementSibling.querySelector('.mute');
@@ -82,22 +70,81 @@ function stories() {
     });
   });
 
-  videos.forEach(function (video) {
-    // ... existing code for play/pause and mute buttons ...
+  /**
+   *
+   * Stories component from webflow
+   *
+   */
 
-    // Event listener for when the video ends
-    video.addEventListener('ended', function () {
-      // Go to the next slide
-      swiper.slideNext();
+  const stories = document.querySelectorAll('.stories_item');
+  const stories_slider = document.querySelector('.stories_slider');
+  stories.forEach((story, index) => {
+    // Get video URL from data attribute
+    const videoURL = story.getAttribute('data-video');
+    // Add slide to swiper
+    addSlide(videoURL, swiperWrapper)
+    // Update swiper
+    swiper.update();
+    story.addEventListener('click', () => {
+      // Slide to the clicked slide index
+      swiper.slideTo(index);
+
+      // Open the modal
+      stories_slider.classList.toggle('active');
+      document.body.classList.toggle('lock');
+      header.classList.toggle('hidden');
+
+      // Play video in the active slide
+      var activeSlideVideo = swiper.slides[swiper.activeIndex].querySelector('video');
+      if (activeSlideVideo) {
+        activeSlideVideo.play();
+      }
+
+      // Swiper to next slide when video ends
+      activeSlideVideo.addEventListener('ended', function () {
+        swiper.slideNext();
+      });
+
     });
   });
+
+
+
+  /**
+   *
+   * On swiper change
+   *
+   */
+  swiper.on('slideChange', function () {
+    console.log('swiper Active Index : ' + swiper.activeIndex);
+
+    // Pause all videos
+    document.querySelectorAll('.swiper-slide video').forEach(function (video) {
+      console.log(video);
+      video.pause();
+    });
+
+    // Play video in the active slide
+    var activeSlideVideo = swiper.slides[swiper.activeIndex].querySelector('video');
+    if (activeSlideVideo) {
+      activeSlideVideo.play();
+    }
+  });
+
+  /**
+   *
+   * Close button
+   *
+   */
 
   const closeBtn = document.querySelector('.btn-pause_icon');
   const header = document.querySelector('.navbar1_component');
   closeBtn.addEventListener('click', () => {
+    const videos2 = document.querySelector('.swiper-slide-active video');
     stories_slider.classList.toggle('active');
     document.body.classList.toggle('lock');
     header.classList.toggle('hidden');
+    videos2.pause();
   });
 
 }
