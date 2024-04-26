@@ -5,4 +5,4 @@ import './styles/style.css'
 
 heroVideo()
 stories()
-console.log('Welcome to Vite + JS + Webflow 2!')
+console.log('Welcome to Vite + JS + Webflow 3!')
