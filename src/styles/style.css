@@ -108,3 +108,27 @@ video::-webkit-media-controls-volume-slider {}
   opacity: 0;
   pointer-events: none;
 }
+
+.hero_modal {
+  pointer-events: none;
+  transition: opacity 0.3s ease-out;
+  backdrop-filter: blur(10px);
+}
+
+.hero_modal.is-active {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.hero_modal video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+@media (min-width: 1024px) {
+  .hero_modal video {
+    width: 90%;
+    height: 90%;
+  }
+}
