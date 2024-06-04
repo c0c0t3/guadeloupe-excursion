@@ -9,20 +9,6 @@ function headerNav() {
       function () {
         const st = window.scrollY || document.documentElement.scrollTop
 
-        /*
-        if (body.classList.contains('home')) {
-          const heroHeight =
-            document.querySelector('.section-home-hero').offsetHeight
-          if (st > heroHeight) {
-            headerNav.classList.remove('is-home')
-            headerNav.classList.remove('is-hidden')
-          } else if (st < heroHeight) {
-            headerNav.classList.add('is-home')
-            headerNav.classList.add('is-hidden')
-          }
-        }
-        */
-
         if (st > lastScrollTop && st > 200) {
           // Scrolling down
           headerNav.classList.add('is-hidden')

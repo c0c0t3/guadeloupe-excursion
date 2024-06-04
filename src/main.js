@@ -6,5 +6,5 @@ import './styles/style.css'
 
 heroVideo()
 stories()
-headerNav
+headerNav()
 console.log('Welcome to Vite + JS + Webflow 3!')
