@@ -7,4 +7,4 @@ import './styles/style.css'
 heroVideo()
 stories()
 headerNav()
-console.log('Welcome to Vite + JS + Webflow 3!')
+console.log('Guadeloupe Excursions is running!')
