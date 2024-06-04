@@ -9,6 +9,8 @@ function headerNav() {
       function () {
         const st = window.scrollY || document.documentElement.scrollTop
 
+        console.log('scrolling')
+
         if (st > lastScrollTop && st > 200) {
           // Scrolling down
           headerNav.classList.add('is-hidden')

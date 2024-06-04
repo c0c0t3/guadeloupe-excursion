@@ -132,3 +132,20 @@ video::-webkit-media-controls-volume-slider {}
     height: 90%;
   }
 }
+
+.is-hidden {
+  transform: translateY(-100%);
+}
+
+.is-blue {
+  background-color: white;
+  box-shadow: 0 2px 0px 0px #004866;
+}
+
+.is-blue .navbar1_dropdown-toggle, .is-blue .navbar1_link {
+  color: #004866;
+}
+
+.is-blue .navbar1_logo {
+  width: 10rem;
+}
