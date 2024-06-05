@@ -7,4 +7,4 @@ import './styles/style.css'
 heroVideo()
 stories()
 headerNav()
-console.log('Guadeloupe Excursions is running!')
+console.log('Guadeloupe Excursions is running ! 050624')
