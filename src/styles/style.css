@@ -137,18 +137,21 @@ video::-webkit-media-controls-volume-slider {}
   transform: translateY(-100%);
 }
 
-.is-blue {
-  background-color: white;
-  box-shadow: 0 2px 0px 0px #004866;
+@media (min-width:767px) {
+  .is-blue {
+    background-color: white;
+    box-shadow: 0 2px 0px 0px #004866;
+  }
+
+  .is-blue .navbar1_dropdown-toggle, .is-blue .navbar1_link {
+    color: #004866;
+  }
+
+  .is-blue .navbar1_logo {
+    width: 10rem;
+  }
 }
 
-.is-blue .navbar1_dropdown-toggle, .is-blue .navbar1_link {
-  color: #004866;
-}
-
-.is-blue .navbar1_logo {
-  width: 10rem;
-}
 .iframe-video-img {
   width: 100%;
   height: 100%;
